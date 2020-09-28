@@ -31,8 +31,7 @@ The business data is dependent data that must be assigned by force to a business
 
 | currency amounts | others |
 |------------------|--------|
-| ![amount](pictures/amount.png) | ![value](pictures/value.png) |
-|------------------|--------|
+| <img src="pictures/amount.png" alt="amounts" width="250"/> | <img src="pictures/value.png" alt="values" width="250"/> |
 
 * Where do business foreign keys belong? It depends:
     * A foreign key with reference to a "business change" belongs in the business data.
