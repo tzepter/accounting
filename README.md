@@ -39,4 +39,4 @@ The business data is dependent data that must be assigned by force to a business
 	
 #### Implementation
 
-The whole thing can be developed with Java Generics in the form of a linkable utility library. In this way, the application developer can be provided with complete CRUD functionality without having to learn the schema of data storage. Of course, there must be an understanding of the terms of validity - but otherwise the application developer can speak of "change sentence" or "delete sentence".
+The whole thing can be developed with Java generics or annotations in the form of a utility library. In this way, the application developer can be provided with complete CRUD functionality without having to learn the schema of data storage. Of course, there must be an understanding of the terms of validity - but otherwise the application developer can speak of "change data row" or "delete data row".
