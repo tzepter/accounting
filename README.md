@@ -4,7 +4,7 @@ In a modern IT system, all business entities are striving for account-based data
 
 Generically, one can consider that every business entity is divided into three parts:
 
-![data-overview](data-overview.png "(blue: technical key, green: technical foreign key, grey: dependent data)")
+![data-overview](pictures/data-overview.png "(blue: technical key, green: technical foreign key, grey: dependent data)")
 
 The fields VID, KID, DID are technical key fields in the form of a UUID (globally unique, without order relation) or in form of a big Integer. The (first) letter V stands for **validity**, K for **key** and D for **data**. As indicated in the diagram, there are three tables in the relational database model.
 
@@ -29,7 +29,10 @@ The business data is dependent data that must be assigned by force to a business
 * Since the validity fields only represent a beginning in each case, all business changes up to complete deletion must be realised via aggregates.
 * Aggegrate types depend on the business purpose of a field, see examples.
 
-[pic]
+| currency amounts | others |
+|------------------|--------|
+| ![amount](pictures/amount.png) | ![value](pictures/value.png) |
+|------------------|--------|
 
 * Where do business foreign keys belong? It depends:
     * A foreign key with reference to a "business change" belongs in the business data.
