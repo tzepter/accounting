@@ -29,8 +29,8 @@ public class ValidityLookupServiceTest {
 
 	@BeforeEach
 	void setSpecialTimes() {
-		existence = LocalDateTime.of(2020,1,1,0,0,0);
-		effectiveness = LocalDateTime.of(2019,12,21,8,3,34);
+		effectiveness = LocalDateTime.of(2020,1,1,0,0,0);
+		existence = LocalDateTime.of(2019,12,21,8,3,34);
 	}
 	
 	@Test

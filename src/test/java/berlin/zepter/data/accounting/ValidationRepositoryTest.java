@@ -22,17 +22,17 @@ import org.springframework.test.annotation.DirtiesContext.ClassMode;
 @DirtiesContext(classMode = ClassMode.BEFORE_EACH_TEST_METHOD)
 public class ValidationRepositoryTest {
 
-	private LocalDateTime existence;
-	private LocalDateTime earlyEffectiveness;
-	private LocalDateTime lateEffectiveness;
+	private LocalDateTime effectiveness;
+	private LocalDateTime earlyExistence;
+	private LocalDateTime lateExistence;
 	
 	@Autowired ValidityRepository validityRepository;
 
 	@BeforeEach
 	void setSpecialTimes() {
-		existence = LocalDateTime.of(2020,1,1,0,0,0);
-		earlyEffectiveness = LocalDateTime.of(2019,12,21,8,3,34);
-		lateEffectiveness = LocalDateTime.of(2020,1,15,22,32,55);
+		effectiveness = LocalDateTime.of(2020,1,1,0,0,0);
+		earlyExistence = LocalDateTime.of(2019,12,21,8,3,34);
+		lateExistence = LocalDateTime.of(2020,1,15,22,32,55);
 	}
 	
 	@Test
@@ -58,7 +58,7 @@ public class ValidationRepositoryTest {
 		fillWithData();
 		Optional<Validity> optValidity = validityRepository.findById(1L);
 		assertTrue(optValidity.isPresent());
-		assertEquals(Timestamp.valueOf(earlyEffectiveness), optValidity.get().getEffectiveness());
+		assertEquals(Timestamp.valueOf(earlyExistence), optValidity.get().getExistence());
 	}	
 
 	@Test
@@ -67,8 +67,8 @@ public class ValidationRepositoryTest {
 		assertEquals(2,
 			validityRepository
 			   .findByEffectivenessAndExistence(
-					Timestamp.valueOf(lateEffectiveness), 
-					Timestamp.valueOf(existence)).getVid()
+				   Timestamp.valueOf(effectiveness), 
+				   Timestamp.valueOf(lateExistence)).getVid()
 		);
 	}
 
@@ -85,13 +85,13 @@ public class ValidationRepositoryTest {
 		List<Validity> data = new ArrayList<>();
 		data.add(
 			new Validity(
-				Timestamp.valueOf(earlyEffectiveness),
-				Timestamp.valueOf(existence)
+				Timestamp.valueOf(effectiveness),
+				Timestamp.valueOf(earlyExistence)
 			));
 		data.add(
 			new Validity(
-				Timestamp.valueOf(lateEffectiveness), 
-				Timestamp.valueOf(existence)
+				Timestamp.valueOf(effectiveness),
+				Timestamp.valueOf(lateExistence)
 			));
 	    data.stream().forEach(item -> {
 	    	 try {
